@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup as bs
 import re
 import json
 import csv
-import datetime
 import matplotlib.pyplot as plt
 import matplotlib
 
@@ -43,20 +42,19 @@ def task():
           (al['confirmedCount'], al['suspectedCount'], al['curedCount'],
            al['deadCount'], al['seriousCount']))
 
-    font = {
-        'family': 'MicroSoft YaHei',
-        'weight': 'light',
-        'size': 10
-        }
+    font = {'family': 'MicroSoft YaHei', 'weight': 'light', 'size': 10}
     matplotlib.rc("font", **font)
-    fig = plt.figure(figsize=(10, 9),dpi=80)
+    fig = plt.figure(figsize=(10, 9), dpi=80)
     fig.canvas.set_window_title('全国各省感染人数占比')
     plt.axes(aspect=1)
-    plt.pie(x=conf_list, labels=prov_list, autopct='%3.1f %%',pctdistance=1.2,labeldistance=1.0)
+    plt.pie(x=conf_list,
+            labels=prov_list,
+            autopct='%3.1f %%',
+            pctdistance=1.2,
+            labeldistance=1.0)
     plt.title('全国各省感染人数占比')
     plt.legend()
     plt.show()
-
 
     input('任意键继续')
 
