@@ -14,7 +14,7 @@ header = {
 }
 
 pat1 = re.compile('(\[[^\]]+?\])')
-pat2 = re.compile('(\{[^\}\{]+?\})')
+pat2 = re.compile('=\s?(\{.+)\}catch')
 
 
 def task():
