@@ -13,7 +13,7 @@ header = {
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
 }
 
-pat1 = re.compile('(\[[^\]]+?\])')
+pat1 = re.compile('(\[\{.+\])\}catch')
 pat2 = re.compile('=\s?(\{.+)\}catch')
 
 
@@ -33,7 +33,7 @@ def task():
     res.encoding = res.apparent_encoding
 
     soup = bs(res.text, 'html.parser')
-    dat1 = str(soup.findAll(id='getListByCountryTypeService1')[0].string)
+    dat1 = str(soup.findAll(id='getAreaStat')[0].string)
     dat2 = str(soup.findAll(id='getStatisticsService')[0].string)
     st1 = pat1.findall(dat1)[0]
     st2 = pat2.findall(dat2)[0]
